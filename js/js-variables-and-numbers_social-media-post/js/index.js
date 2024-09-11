@@ -31,10 +31,10 @@ let isReported = true;
 */
 
 // --v-- write your code here --v--
-console.log(title);
-console.log(text);
-console.log(numberOfLikes);
-console.log(user);
-console.log(isReported);
+console.log("Title:", title);
+console.log("Text:", text);
+console.log("Likes:", numberOfLikes);
+console.log("User", user);
+console.log("Is reported:", isReported);
 
 // --^-- write your code here --^--
