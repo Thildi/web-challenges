@@ -7,7 +7,7 @@ Make sure to take a good look at the preview screens.
 ## Task
 
 - familiarize yourself with the `./index.html` and `./css/styles.css` files
-- find out how many breakpoints you need to implement
+- find out how many breakpoints you need to implement (tablet und desktop!)
 - find out what needs to change to meet the visual guidelines established in the preview screens
 - ... enjoy!
 
@@ -23,8 +23,6 @@ Run `npm run start` to start a development server and open [localhost:3000](http
 
 > Alternatively you can use the Live Preview Extension for Visual Studio Code to view this project.  
 > Select the HTML file you want to view, press <kbd>⇧</kbd><kbd>⌘</kbd><kbd>P</kbd>, search for `Live Preview: Show Preview` and confirm with <kbd>Enter</kbd>.
-
-
 
 ### Scripts
 

@@ -238,16 +238,87 @@ fairly essential to completing this challenge. */
 
 /* ==[ MEDIA QUERIES & BREAKPOINTS ]== */
 
-/* Now it's your turn! Here we're using media queries to partially overwrite our
-CSS when certain conditions that we declare are met - such as a certain viewport 
-width, etc. */
+@media screen and (min-width: 900px) {
+  /*Ursprungseinstellung zum Vergleich: 
+  .card-section {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: var(--gap);
+  flex-direction: column;
+  }
+  /* Neues Layout für die Karte-Sektion: */
+  .card-section {
+    flex-direction: row; /* Karten werden in einer Reihe (horizontal) angezeigt */
+    flex-wrap: wrap; /* Karten können in mehrere Zeilen umgebrochen werden, wenn der Platz nicht ausreicht */
+    align-items: start; /* Karten werden am oberen Rand des Containers ausgerichtet */
+    padding: 10px; /* Fügt 10px Innenabstand um den Inhalt der Karte-Sektion hinzu */
+    justify-content: space-around; /* Verteilung der Karten mit gleichmäßigem Abstand zwischen den Karten */
+  }
 
-/* Media Query Tablet */
-/* --- */
-/* Replace this comment with your media query. */
+  /*Urspungseinstellungen:
+  .product-card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 70%;
+  height: 250px;
+  font-size: 1.5rem;
+  box-shadow: 0px 0px 10px 0px var(--inky-black);
+}
+  .intro-text {
+  color: var(--dark-beige);
+  font-size: var(--regular-text);
+  line-height: var(--regular-text-line-height);
+  width: 70%;
+} 
+  
+Neuer Stil für jede Produktkarte und den Einführungstext:*/
+  .product-card,
+  .intro-text {
+    width: calc(
+      (100% - var(--gap)) / 2
+    ); /* Breite von product-card und introtext auf 50% des Eltern-Containers -> card-section, (Kindelemente von card-section) minus den Abstand (gap) setzen */
+    /* Das sorgt dafür, dass zwei Elemente (Karten oder Text) nebeneinander passen */
+  }
+}
 /* --- */
 
 /* Media Query Desktop */
 /* --- */
-/* Replace this comment with your media query. */
-/* --- */
+/* Für Bildschirme ab 1200px Breite (große Desktops): */
+@media screen and (min-width: 1200px) {
+  /*Ursprüngliche Einstellungen:
+  body {
+  font-family: system-ui;
+  background-color: var(--forest-green);
+} 
+  .main-header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: var(--navy-blue);
+}
+  .navbar {
+  display: flex;
+  justify-content: space-around;
+  position: fixed;
+  top: var(--header-height);
+  width: 100%;
+  background-color: var(--dark-beige);
+}
+
+  Layout-Anpassungen für die gesamte Seite */
+  body,
+  .main-header,
+  .navbar {
+    max-width: 1200px; /* Maximale Breite der Seite auf 1200px begrenzen */
+    margin-left: auto; /* Zentriert das Layout horizontal, indem der linke Rand automatisch gesetzt wird */
+    margin-right: auto; /* Zentriert das Layout horizontal, indem der rechte Rand automatisch gesetzt wird */
+  }
+
+  /* Stil für die Forest-Karte */
+  .--forest {
+    width: 100%; /* Die Forest-Karte nimmt die gesamte Breite des Containers ein */
+  }
+}
