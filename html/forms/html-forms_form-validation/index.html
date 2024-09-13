@@ -32,6 +32,8 @@
             name="firstName"
             id="first-name"
             placeholder="Your first name"
+            minlength="4"
+            max="30"
           />
 
           <label for="last-name">Last Name</label>
@@ -43,10 +45,21 @@
           />
 
           <label for="age">Age</label>
-          <input type="number" name="age" id="age" />
+          <input
+            type="number"
+            name="age"
+            id="age"
+            min="14"
+            placeholder="Minimum 14 years old"
+          />
 
           <label for="email">Email</label>
-          <input type="text" name="email" id="email" />
+          <input
+            type="email"
+            name="email"
+            id="email"
+            placeholder="Your E-Mail-Adress"
+          />
         </fieldset>
 
         <fieldset>
@@ -90,6 +103,7 @@
               type="checkbox"
               name="terms-of-service"
               id="terms-of-service"
+              required
             />
             I have read the terms of service and agree to sell my soul
             <a
