@@ -9,6 +9,10 @@ console.clear();
 */
 
 // --v-- write your code here --v--
+let bookTitle = "Harry Potter";
+let author = "J.K. Rowling";
+let rating = 9.2;
+let numberOfSales = 100;
 
 // --^-- write your code here --^--
 
@@ -25,6 +29,15 @@ Then log all variables to the console again.
 */
 
 // --v-- write your code here --v--
+logBookData();
+
+function increaseNumOfSales() {
+  numberOfSales += 30;
+  rating = 9.6;
+}
+
+increaseNumOfSales();
+logBookData();
 
 // --^-- write your code here --^--
 
@@ -37,5 +50,15 @@ Then log all variables to the console again.
 */
 
 // --v-- write your code here --v--
-
+function logBookData() {
+  console.log(bookTitle);
+  console.log(author);
+  console.log(rating);
+  console.log(numberOfSales);
+}
 // --^-- write your code here --^--
+
+increaseNumOfSales();
+logBookData();
+increaseNumOfSales();
+logBookData();
