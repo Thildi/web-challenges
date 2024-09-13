@@ -10,6 +10,48 @@
     <link rel="stylesheet" href="./css/styles.css" />
   </head>
   <body>
-    <section></section>
+    <section>
+      <div class="form-container">
+        <h1><strong>Create your Personal Profile</strong></h1>
+
+        <form action="/submit-profile" method="post">
+          <p>
+            We want to get to know you! Please enter your personal information.
+          </p>
+          <fieldset>
+            <legend><strong>Personal information</strong></legend>
+            <label for="first-name">First Name:</label>
+            <input type="text" id="first-name" name="first-name" />
+            <label for="last-name">Last Name:</label>
+            <input type="text" id="last-name" name="last-name" />
+            <label for="birthday">Your Birthday:</label>
+            <input type="date" id="birthday" name="birthday" />
+          </fieldset>
+          <p>
+            Cann you tell us a little bit more? We want to annoy you with
+            unwanted ads.
+          </p>
+          <fieldset>
+            <legend><strong>Further Information</strong></legend>
+            <label for="fav-color">Favourit Color:</label>
+            <input
+              type="color"
+              id="fav-color"
+              name="fav-color"
+              value="#E5430F"
+            />
+            <label for="fav-pet">What's your favourite pet?</label>
+            <select id="fav-pet" name="fav-pet">
+              <option value="">--Please choose an option--</option>
+              <option value="dog">Dog</option>
+              <option value="dog">Cat</option>
+              <option value="dog">Panda</option>
+              <option value="dog">Worm</option>
+            </select>
+          </fieldset>
+          <button type="submit">Submit</button>
+        </form>
+      </div>
+    </section>
   </body>
 </html>
