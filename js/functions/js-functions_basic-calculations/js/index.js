@@ -11,22 +11,27 @@ They should return the result of the respective calculation:
 */
 
 function add(a, b) {
+  return a + b;
   // Code here
 }
 
 function subtract(a, b) {
+  return a - b;
   // Code here
 }
 
 function multiply(a, b) {
+  return a * b;
   // Code here
 }
 
 function divide(a, b) {
+  return a / b;
   // Code here
 }
 
 function remainder(a, b) {
+  return a % b;
   // Code here
 }
 
