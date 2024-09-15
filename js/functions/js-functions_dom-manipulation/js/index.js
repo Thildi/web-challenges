@@ -29,18 +29,24 @@ redButton.addEventListener("click", () => {
 });
 
 blueButton.addEventListener("click", () => {
+  removeAllColors();
+  addColor("blue");
   // use your functions to
   // - remove all classes
   // - then add the class name: "blue"
 });
 
 greenButton.addEventListener("click", () => {
+  removeAllColors();
+  addColor("green");
   // use your functions to
   // - remove all classes
   // - then add the class name: "green"
 });
 
 grayButton.addEventListener("click", () => {
+  removeAllColors();
+  addColor("gray");
   // use your functions to
   // - remove all classes
   // - then add the class name: "gray"
