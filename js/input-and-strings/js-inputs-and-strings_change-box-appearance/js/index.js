@@ -22,17 +22,25 @@ const inputColor = document.querySelector('[data-js="input-color"]');
 const inputRadius = document.querySelector('[data-js="input-radius"]');
 const inputRotation = document.querySelector('[data-js="input-rotation"]');
 
+// Die Spans für die Ausgabe der aktuellen Werte auswählen
+const colorValue = document.querySelector('[data-js="color-value"]');
+const radiusValue = document.querySelector('[data-js="radius-value"]');
+const rotationValue = document.querySelector('[data-js="rotation-value"]');
+
 inputColor.addEventListener("input", () => {
   const hue = inputColor.value;
   box.style.backgroundColor = `hsl(${hue}, 70%, 60%)`;
+  colorValue.textContent = hue; // Aktuellen Farbwert anzeigen
 });
 
 inputRadius.addEventListener("input", () => {
   const radius = inputRadius.value;
   box.style.borderRadius = `${radius}%`;
+  radiusValue.textContent = `${radius}%`; // Aktuellen Radiuswert anzeigen
 });
 
 inputRotation.addEventListener("input", () => {
   const rotation = inputRotation.value;
   box.style.transform = `rotate(${rotation}deg)`;
+  rotationValue.textContent = `${rotation}°`; // Aktuellen Rotationswert anzeigen
 });
