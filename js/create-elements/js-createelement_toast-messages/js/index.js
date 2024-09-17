@@ -16,4 +16,5 @@ addButton.addEventListener("click", () => {
 
 clearButton.addEventListener("click", () => {
   // Exercise: Clear the stack of toast messages
+  toastContainer.innerHTML = "";
 });
