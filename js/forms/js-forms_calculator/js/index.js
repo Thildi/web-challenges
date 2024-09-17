@@ -28,22 +28,25 @@ form.addEventListener("submit", (event) => {
   // Eingabewerte in Zahlen umwandeln
   const a = Number(data.numberA);
   const b = Number(data.numberB);
-  const operator = data.operator;
 
   let result;
 
-  // Berechnung basierend auf dem ausgewählten Operator durchführen
-  if (operator === "addition") {
-    result = add(a, b);
-  } else if (operator === "subtraction") {
-    result = subtract(a, b);
-  } else if (operator === "multiplication") {
-    result = multiply(a, b);
-  } else if (operator === "division") {
-    // Überprüfung auf Division durch Null hinzugefügt
-    result = b === 0 ? "Error: Division by zero" : divide(a, b);
-  } else {
-    result = "Invalid operator";
+  switch (data.operator) {
+    case "addition":
+      result = add(a, b);
+      break;
+    case "subtraction":
+      result = subtract(a, b);
+      break;
+    case "multiplication":
+      result = multiply(a, b);
+      break;
+    case "division":
+      // Sicherstellen, dass Division durch 0 nicht durchgeführt wird:
+      result = b === 0 ? "Error: Division by zero" : divide(a, b);
+      break;
+    default:
+      result = "Invalid operator";
   }
 
   // Ergebnis anzeigen
