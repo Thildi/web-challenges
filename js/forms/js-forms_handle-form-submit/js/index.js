@@ -16,5 +16,6 @@ form.addEventListener("submit", (event) => {
   console.log(
     `The age-badness-sum of "${data.firstName}" is "${ageBadnessSum}"`
   );
+
   event.target.reset();
 });
