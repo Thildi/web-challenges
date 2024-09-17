@@ -7,6 +7,14 @@ form.addEventListener("submit", (event) => {
   const formData = new FormData(event.target);
   const data = Object.fromEntries(formData);
 
-  event.target.reset();
   console.log(data);
+
+  const age = parseInt(data.age, 10); // Alter als Ganzzahl
+  const badness = parseInt(data.badness, 10); // Badness als Ganzzahl
+
+  const ageBadnessSum = age + badness;
+  console.log(
+    `The age-badness-sum of "${data.firstName}" is "${ageBadnessSum}"`
+  );
+  event.target.reset();
 });
