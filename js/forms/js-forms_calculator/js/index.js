@@ -41,9 +41,9 @@ form.addEventListener("submit", (event) => {
     result = multiply(a, b);
   } else if (operator === "division") {
     // Überprüfung auf Division durch Null hinzugefügt
-    result = b === 0 ? "Fehler: Division durch Null" : divide(a, b);
+    result = b === 0 ? "Error: Division by zero" : divide(a, b);
   } else {
-    result = "Ungültiger Operator";
+    result = "Invalid operator";
   }
 
   // Ergebnis anzeigen
