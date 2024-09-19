@@ -132,30 +132,11 @@ const pixelValues = [
 ];
 const canvas = document.querySelector('[data-js="canvas"]');
 
-/*
-Use the color values in the array `pixelValues` to create "pixel" elements and append them to the `canvas` element.
-
-- use `for` loops to generate the pixel elements
-- pixels should be a `div` element with the class `pixel` and the background color set to respective color from the `pixelValues` array.
-- You can append all pixels directly to the canvas, no need for extra row grouping etc.
-- Hint: The colors are stored in Arrays inside another Array. How can you access these values with for loops?
-
-Switch to the `./js/index.js` file and make something great happen! */
-
-// Rufe die Funktion auf, um die Pixel zu erstellen
-createPixels();
-
-function createPixels() {
-  // Schleife über jede Zeile im pixelValues Array:
-  for (let row = 0; row < pixelValues.length; row++) {
-    // Schleife über jede Spalte in der aktuellen Zeile des Arrays:
-    for (let column = 0; column < pixelValues[row].length; column++) {
-      const pixelColor = pixelValues[row][column];
-      console.log(pixelColor);
-      const pixel = document.createElement("div");
-      pixel.className = "pixel";
-      pixel.style.backgroundColor = pixelColor;
-      canvas.appendChild(pixel);
-    }
+for (const row of pixelValues) {
+  for (const hexValue of row) {
+    const pixel = document.createElement("div");
+    pixel.className = "pixel";
+    pixel.style.backgroundColor = hexValue;
+    canvas.append(pixel);
   }
 }
