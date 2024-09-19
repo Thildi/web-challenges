@@ -151,6 +151,7 @@ function createPixels() {
     // Schleife über jede Spalte in der aktuellen Zeile des Arrays:
     for (let column = 0; column < pixelValues[row].length; column++) {
       const pixelColor = pixelValues[row][column];
+      console.log(pixelColor);
       const pixel = document.createElement("div");
       pixel.className = "pixel";
       pixel.style.backgroundColor = pixelColor;
