@@ -123,3 +123,18 @@ const pixelValues = [
 ];
 
 const canvas = document.querySelector('[data-js="canvas"]');
+
+function createPixels() {
+  for (let i = 0; i < pixelValues.length; i++) {
+    for (let j = 0; j < pixelValues[i].length; j++) {
+      const pixelColor = pixelValues[i][j]; // Hole die Farbe für das Pixel
+      const pixel = document.createElement("div"); // Erstelle ein neues div-Element
+      pixel.className = "pixel"; // Setze die Klasse auf 'pixel'
+      pixel.style.backgroundColor = pixelColor; // Setze die Hintergrundfarbe des Pixels
+      canvas.appendChild(pixel); // Füge das Pixel dem Canvas hinzu
+    }
+  }
+}
+
+// Rufe die Funktion auf, um die Pixel zu erstellen
+createPixels();
