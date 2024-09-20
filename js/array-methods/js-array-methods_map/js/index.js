@@ -34,10 +34,9 @@ const questionsAndAnswersTogether = cards.map((card) => {
 });
 console.log(questionsAndAnswersTogether);
 
-const questionAndAnswer = cards.map(({ question, answer }) => ({
-  question,
-  answer,
-}));
+const questionAndAnswer = cards.map((card) => {
+  return { question: card.question, answer: card.answer };
+});
 
 console.log(questionAndAnswer);
 
