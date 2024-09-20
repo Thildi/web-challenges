@@ -1,35 +1,28 @@
-/*Open the [index.js](./index.js). You find 3 elements that are generated: A circle, a square and a pentagon. If one of the elements is clicked the color changes to gray. Let's use the `getRandomColor` function to make the elements more colorful!
+/*Now refactor the JavaScript code so that we can split the code into small Components.
 
-- import the function `getRandomColor` from the [utils/randomColor.js](./utils/randomColor.js) file.
-- use the function inside all three event listeners and apply the returned color to the backgroundColor.
+- wrap the creation of the circle element including the `addEventListener` into a separate function starting with a capital letter, e.g. `Circle`
+- after the element is created and all modifications are applied, return the element
+- call the function and save the returned value a variable, e.g. `circleElement`
+- append the element to the root element.
 
-> 💡 Hint: if it doesn't work you might need to change something inside the `index.html` regarding the script tag ;)*/
+The circle should now be visible as before. Now we need to outsource the component into its own file.
 
-import getRandomColor from "./utils/randomColor.js";
+- create a file `Circle.js` inside the [Circle](./components/Circle) folder
+- move the component function inside this file and export it as the default.
+- import the component function inside the `index.js`.
 
-console.clear();
+> 💡 Hint: If the circle doesn't show up, you might need to move some imports into the Circle component as well.
 
-const root = document.getElementById("root");
+Now repeat the previous steps for the square and the pentagon.*/
+import Square from "./components/Square/Square.js";
+import Circle from "./components/Circle/Circle.js";
+import Pentagon from "./components/Pentagon/Pentagon.js";
 
-const circle = document.createElement("div");
-circle.classList.add("circle");
-circle.addEventListener("click", () => {
-  const randomColor = getRandomColor();
-  circle.style.backgroundColor = randomColor;
-});
+const circleElement = Circle();
+root.append(circleElement);
 
-const square = document.createElement("div");
-square.classList.add("square");
-square.addEventListener("click", () => {
-  const randomColor = getRandomColor();
-  square.style.backgroundColor = randomColor;
-});
+const squareElement = Square();
+root.append(squareElement);
 
-const pentagon = document.createElement("div");
-pentagon.classList.add("pentagon");
-pentagon.addEventListener("click", () => {
-  const randomColor = getRandomColor();
-  pentagon.style.backgroundColor = randomColor;
-});
-
-root.append(circle, square, pentagon);
+const pentagonElement = Pentagon();
+root.append(pentagonElement);
