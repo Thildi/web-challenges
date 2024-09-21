@@ -5,8 +5,8 @@ import { zooAnimals } from "../utils/db.js";
 // The function should return 'true' if the animal name is included in the array or 'false' if not.
 
 function hasAnimal(animals, animalName) {
-  const lowercasedAnimals = animals.map((animal) => animal.toLowerCase());
-  return lowercasedAnimals.includes(animalName.toLowerCase());
+  const lowercasedAnimals = animals.map((animal) => animal.toLowerCase()); //wandelt alle Tiere im Array in Kleinbuchstaben um, Kurzschreibweise
+  return lowercasedAnimals.includes(animalName.toLowerCase()); //überprüft ob gesuchter name, (umgewandelt in lowercase) im array, gibt true oder false zurück
 }
 
 // Bonus:
