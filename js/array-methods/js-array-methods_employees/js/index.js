@@ -6,20 +6,25 @@ import { employees } from "../utils/db.js";
 // Check the browser preview and conduct some tests to ensure it works correctly.
 
 function findByLastName(employees, lastName) {
-  return null;
+  const foundEmployee = employees.find(
+    (employee) => employee.lastName === lastName
+  );
+  return foundEmployee || null;
 
   // Exercise 2:
   // The same as above, but now you are searching by the 'id'.
 }
 function findById(employees, id) {
-  return null;
+  const foundId = employees.find((employee) => employee.id === id);
+  return foundId || null;
 }
 
 // Exercise 3:
 // This time you want to find an employee who lives in a city that includes a specific substring.
 
 function findByCitySubString(employees, string) {
-  return null;
+  const foundCity = employees.find((employee) => employee.city === string);
+  return foundCity || null;
 }
 
 // Bonus:
@@ -27,8 +32,21 @@ function findByCitySubString(employees, string) {
 // AND who is older than a specific age
 
 function findByProfessionSubStringAndAge(employees, string, age) {
-  return null;
+  const foundProfessionAndAge = employees.find(
+    (employee) => employee.profession === string && employee.age > parseInt(age) //Typumwandlung MUSS nicht sein, da JS auch eine implizite Typumwandlung vornimmt! Ist aber besser so.
+  );
+  return foundProfessionAndAge || null;
 }
+/*Perfekt wäre es, wenn man noch toLowerCase anwendet:
+
+function findByProfessionSubStringAndAge(employees, string, age) {
+  const foundEmployee = employees.find((employee) => 
+    employee.profession.toLowerCase().includes(string.toLowerCase()) &&
+    employee.age > parseInt(age)
+  );
+  return foundEmployee || null;
+}
+*/
 
 // ------------------------------------------------------------------------------
 // ----- The following code is used for the preview. Don't touch it please. -----
