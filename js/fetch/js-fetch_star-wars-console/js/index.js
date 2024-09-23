@@ -11,8 +11,8 @@ async function fetchData() {
 
   const firstPerson = data.results[0];
   console.log(firstPerson);
-  console.log(firstPerson.mass);
-  console.log(firstPerson.skin_color);
+  console.log(firstPerson.height);
+  console.log(firstPerson.hair_color);
 
   const r2d2 = data.results.find((person) => person.name === "R2-D2");
 
