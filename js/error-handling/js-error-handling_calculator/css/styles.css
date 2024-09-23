@@ -24,7 +24,7 @@ form * {
 }
 
 .error {
-  color: red;
+  color: rgb(255, 0, 0);
   line-height: 3rem;
   font-weight: bold;
 }
