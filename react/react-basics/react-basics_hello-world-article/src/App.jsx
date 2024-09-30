@@ -2,5 +2,20 @@ import React from "react";
 import "./styles.css";
 
 export default function App() {
-  return <div>Replace me with your Component!</div>;
+  return HelloWorldArticle();
+}
+
+function HelloWorldArticle() {
+  return (
+    <article>
+      <h1>Hello World</h1>
+      <p>Hier ein kleiner Beispieltext in React</p>
+      <p>Hier ein zweiter!</p>
+      <ul>
+        <li>Erstes Listenelement</li>
+        <li>Zweites Listenelement</li>
+        <li>Drittes Listenelement</li>
+      </ul>
+    </article>
+  );
 }
