@@ -16,6 +16,8 @@ function HelloWorldArticle() {
         <li>Zweites Listenelement</li>
         <li>Drittes Listenelement</li>
       </ul>
+      <p>Hier noch ein Beispielfoto</p>
+      <img src="https://picsum.photos/200" />
     </article>
   );
 }

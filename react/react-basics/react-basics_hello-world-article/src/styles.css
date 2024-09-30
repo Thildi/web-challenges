@@ -36,3 +36,7 @@ h1 {
 p {
   color: var(--color-granite);
 }
+
+ul {
+  list-style: none;
+}
