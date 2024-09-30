@@ -6,7 +6,7 @@ export default function App() {
 
 function Article() {
   return (
-    <article>
+    <article className="article">
       <h2 className="article__title">Hello and Welcome!</h2>
       <label htmlFor="nameInput">Your Name:</label>
       <input id="nameInput" type="text" className="article__input"></input>
