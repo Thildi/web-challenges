@@ -39,4 +39,5 @@ function Button({ color, backgroundColor, disabled, text, onClick }) {
   );
 }
 
-/* Mehrere Buttons in Fragment  (<>...</>) definiert. "disabled" bleibt derzeit explizit mit Boolean-Wert-Zuweisung, if-Bedingung in handleClick-function eingebaut  */
+/* Mehrere Buttons in Fragment  (<>...</>) definiert. "disabled" bleibt derzeit explizit mit Boolean-Wert-Zuweisung, 
+Parameter zur handleClick-function hinzugefügt um je nach Button eine andere message zu loggen */
