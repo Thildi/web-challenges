@@ -2,17 +2,29 @@ import React from "react";
 import "./styles.css";
 
 export default function App() {
-  function handleClick() {
-    console.log("You clicked the button!");
+  function handleClick1() {
+    console.log("You clicked the green button!");
+  }
+  function handleClick2() {
+    console.log("You cklicked the pink button!");
   }
   return (
-    <Button
-      text="Click me"
-      backgroundColor="lightgreen"
-      color="blue"
-      disabled={false}
-      onClick={handleClick}
-    />
+    <>
+      <Button
+        text="Click me!"
+        backgroundColor="lightgreen"
+        color="blue"
+        disabled={false}
+        onClick={handleClick1}
+      />
+      <Button
+        text="Click me too!"
+        backgroundColor="hotpink"
+        color="black"
+        disabled={false}
+        onClick={handleClick2}
+      />
+    </>
   );
 }
 
@@ -27,3 +39,5 @@ function Button({ color, backgroundColor, disabled, text, onClick }) {
     </button>
   );
 }
+
+/* Mehrere Buttons in Fragment  (<>...</>) definiert. "disabled" bleibt derzeit explizit mit Boolean-Wert-Zuweisung, zweite handleClick-Funktion definiert  */
