@@ -6,6 +6,5 @@ export default function App() {
 }
 
 function Smiley({ isHappy }) {
-  const displayedSmiley = isHappy === true ? "😁" : "😩";
-  return <span>{displayedSmiley}</span>;
+  return <h1>{isHappy === true ? "😁" : "😩"}</h1>;
 }
