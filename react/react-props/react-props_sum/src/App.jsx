@@ -6,10 +6,9 @@ export default function App() {
 }
 
 function Sum({ valueA, valueB }) {
-  const result = valueA + valueB;
   return (
     <p>
-      {valueA} + {valueB} = {result}
+      {valueA} + {valueB} = {valueA + valueB}
     </p>
   );
 }
