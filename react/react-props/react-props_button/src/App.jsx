@@ -2,12 +2,11 @@ import React from "react";
 import "./styles.css";
 
 export default function App() {
-  function handleClick1() {
-    console.log("You clicked the green button!");
+  // Eine einzige handleClick-Funktion
+  function handleClick(buttonName) {
+    console.log(`You clicked the ${buttonName} button!`);
   }
-  function handleClick2() {
-    console.log("You cklicked the pink button!");
-  }
+
   return (
     <>
       <Button
@@ -15,14 +14,14 @@ export default function App() {
         backgroundColor="lightgreen"
         color="blue"
         disabled={false}
-        onClick={handleClick1}
+        onClick={() => handleClick("green")}
       />
       <Button
         text="Click me too!"
         backgroundColor="hotpink"
         color="black"
         disabled={false}
-        onClick={handleClick2}
+        onClick={() => handleClick("pink")}
       />
     </>
   );
@@ -40,4 +39,4 @@ function Button({ color, backgroundColor, disabled, text, onClick }) {
   );
 }
 
-/* Mehrere Buttons in Fragment  (<>...</>) definiert. "disabled" bleibt derzeit explizit mit Boolean-Wert-Zuweisung, zweite handleClick-Funktion definiert  */
+/* Mehrere Buttons in Fragment  (<>...</>) definiert. "disabled" bleibt derzeit explizit mit Boolean-Wert-Zuweisung, if-Bedingung in handleClick-function eingebaut  */
