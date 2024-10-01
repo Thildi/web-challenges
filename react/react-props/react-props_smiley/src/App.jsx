@@ -6,7 +6,7 @@ export default function App() {
 }
 
 function Smiley({ isHappy }) {
-  return <h1>{isHappy === true ? "😁" : "😩"}</h1>;
+  return <h1>{isHappy ? "😁" : "😩"}</h1>;
 }
 
 /* Es ist zwar schön, das so direkt im JSX zu schrieben, bei komplexeren Anwendungen sollte
