@@ -5,7 +5,5 @@ export default function App() {
 }
 
 function Greeting({ name }) {
-  const greetingMessage = name === "Coach" ? "Hello, Coach" : `Hello, ${name}!`;
-
-  return <p>{greetingMessage}</p>;
+  return <h1>Hello, {name === "Coach" ? "Coach" : name}!</h1>;
 }
