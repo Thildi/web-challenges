@@ -13,7 +13,7 @@ export default function App() {
     <main>
       <div className={`box ${isActive ? "box--active" : ""}`} />
       <button onClick={handleClick}>{`${
-        isActive ? "Activate" : "Deactivate"
+        isActive ? "Deactivate" : "Activate"
       }`}</button>
     </main>
   );
