@@ -9,15 +9,13 @@ export default function FavoriteButton() {
 
   function handleToggleFavorite() {
     setIsFavorite(!isFavorite);
+    console.log("favorite button clicked");
   }
 
   return (
     <button
       className="favorite-button"
-      onClick={() => {
-        handleToggleFavorite();
-        console.log("favorite button clicked");
-      }}
+      onClick={handleToggleFavorite}
       aria-label="favorite"
     >
       {isFavorite ? <StarFilled /> : <Star />}
