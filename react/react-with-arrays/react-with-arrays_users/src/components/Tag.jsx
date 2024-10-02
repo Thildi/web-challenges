@@ -1,5 +1,6 @@
 import "./Tag.css";
 
 export default function Tag({ tag }) {
-  return <li className="tag">{tag}</li>;
+  const tagClass = tag === "admin" ? "tag tag--highlight" : "tag";
+  return <li className={tagClass}>{tag}</li>;
 }
