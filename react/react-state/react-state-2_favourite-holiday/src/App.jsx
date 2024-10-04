@@ -1,6 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
 import "./styles.css";
-import { useState } from "react";
 
 export default function App() {
   const [holiday, setHoliday] = useState("");
@@ -8,12 +7,12 @@ export default function App() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    const { holiday: holidayValue, date: dateValue } = event.target.elements;
-    setHoliday(holidayValue.value);
-    setDate(dateValue.value);
+    const formData = new FormData(event.target); // FormData-Objekt erstellen
+    setHoliday(formData.get("holiday")); // Holiday-Wert abrufen
+    setDate(formData.get("date")); // Date-Wert abrufen
 
-    event.target.reset();
-    holidayValue.focus();
+    event.target.reset(); // Formular zurücksetzen
+    document.getElementById("holiday").focus(); // Den Fokus zurück auf das Holiday-Feld setzen
   };
 
   return (
