@@ -6,17 +6,15 @@ export default function App() {
   const [holiday, setHoliday] = useState("");
   const [date, setDate] = useState("");
 
-  function handleSubmit(event) {
+  const handleSubmit = (event) => {
     event.preventDefault();
-    const valueHoliday = event.target.holiday.value;
-    const valueDate = event.target.date.value;
-
-    setHoliday(valueHoliday);
-    setDate(valueDate);
+    const { holiday: holidayValue, date: dateValue } = event.target.elements;
+    setHoliday(holidayValue.value);
+    setDate(dateValue.value);
 
     event.target.reset();
-    document.getElementById("holiday").focus();
-  }
+    holidayValue.focus();
+  };
 
   return (
     <div className="container">
