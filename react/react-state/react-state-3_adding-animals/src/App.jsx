@@ -26,7 +26,7 @@ export default function App() {
   const [animals, setAnimals] = useState(initialAnimals);
 
   function handleAddAnimal(newAnimal) {
-    console.log(newAnimal);
+    //console.log(newAnimal);
     setAnimals([...animals, { id: uid(), ...newAnimal }]);
   }
 
