@@ -13,6 +13,7 @@ export default function App() {
   };
 
   const handleSubtracting = () => {
+    // Sicherstellen, dass die Personenanzahl nicht negativ wird
     if (people > 0) {
       setPeople(people - 1);
     }
