@@ -1,26 +1,32 @@
+import { useState } from "react"; // useState importieren, um den Zustand zu verwalten
 import "./StatusCheck.css";
 
 const apiStatusUrl = "https://example-apis.vercel.app/api/status";
 
 export default function StatusCheck() {
-  const statusIcon = "⁉️";
-  // Something needs to change here…
-  // ↙️
+  const [statusIcon, setStatusIcon] = useState("⁉️"); // Standard-Status-Icon
+  const [isLoading, setIsLoading] = useState(false); // Zustand für Ladeanzeige
+
   function handleCheckApiStatus() {
-    /**
-     * Hint 1:
-     * Use the `fetch()` function and pass the `apiStatusUrl` into it
-     *
-     * Hint 2:
-     * The fetch function returns a promise which resolves to a Response
-     * object once it is ready.
-     *
-     * Hint 3:
-     * The Response object has a `ok` property which is true if the response
-     * is okay and false if it is not.
-     **/
-    // --v-- write your code here --v--
-    // --^-- write your code here --^--
+    setIsLoading(true); // Ladeanzeige aktivieren, wenn die Anfrage beginnt
+    setStatusIcon("⏳"); // Lade-Icon setzen
+
+    // fetch verwenden, um den API-Status abzurufen
+    fetch(apiStatusUrl)
+      .then((response) => {
+        if (response.ok) {
+          setStatusIcon("✅"); // API ist erreichbar
+        } else {
+          setStatusIcon("❌"); // API hat geantwortet, aber mit einem Fehler
+        }
+      })
+      .catch((error) => {
+        console.error("Fehler beim Abrufen des API-Status:", error);
+        setStatusIcon("🚨"); // Fehler aufgetreten (Netzwerkproblem)
+      })
+      .finally(() => {
+        setIsLoading(false); // Ladeanzeige deaktivieren
+      });
   }
 
   return (
@@ -33,8 +39,10 @@ export default function StatusCheck() {
         type="button"
         className="status-check__button"
         onClick={handleCheckApiStatus}
+        disabled={isLoading} // Button deaktivieren, wenn geladen wird
       >
-        Check API Status
+        {isLoading ? "Überprüfe..." : "API-Status überprüfen"}{" "}
+        {/* Button-Text je nach Ladezustand */}
       </button>
     </article>
   );
