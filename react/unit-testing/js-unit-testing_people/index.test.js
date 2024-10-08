@@ -71,8 +71,7 @@ test('getNameAndAge() returns an array of formatted strings like this: "Skywalke
 });
 
 test("getPeopleByAge() returns an array of people of a certain age", () => {
-  const age = 21;
-  const result = getPeopleByAge(people, age);
+  const result = getPeopleByAge(people, 21);
 
   expect(result).toEqual([
     {
@@ -85,8 +84,7 @@ test("getPeopleByAge() returns an array of people of a certain age", () => {
 });
 
 test('getPeopleNamesOlderThan() returns an array of people full names older than a certain age, e.g. "Luke Skywalker"', () => {
-  const age = 20;
-  const result = getPeopleNamesOlderThan(people, age);
+  const result = getPeopleNamesOlderThan(people, 20);
   expect(result).toEqual([
     "Jane Doe",
     "Max Mustermann",
@@ -113,7 +111,6 @@ test("getPeopleByLastName() returns an array of people of a certain lastName", (
   ]);
 });
 
-// Hint: use Array.prototype.find for the implementation
 test("findPersonById() returns the full object of a person", () => {
   const result = findPersonById(people, 1);
   expect(result).toEqual({
@@ -124,7 +121,6 @@ test("findPersonById() returns the full object of a person", () => {
   });
 });
 
-// Hint: implementation should use Array.prototype.some
 test("isAnyoneOlderThan() returns true if any person is older than the given age", () => {
   const result = isAnyoneOlderThan(people, 37);
   expect(result).toBe(true);
