@@ -5,6 +5,7 @@ import Footer from "./components/Footer";
 import Header from "./components/Header";
 import { uid } from "uid";
 import useLocalStorageState from "use-local-storage-state";
+import { useState } from "react";
 
 const initialEntries = [
   {
@@ -43,9 +44,7 @@ function App() {
   });
 
   // Persisting filter in Local Storage
-  const [filter, setFilter] = useLocalStorageState("filter", {
-    defaultValue: "all",
-  });
+  const [filter, setFilter] = useState("all");
 
   function handleAddEntry(newEntry) {
     const date = new Date().toLocaleDateString("en-us", {
