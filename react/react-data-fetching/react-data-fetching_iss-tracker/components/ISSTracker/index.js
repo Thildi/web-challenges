@@ -13,7 +13,7 @@ async function fetcher(url) {
 }
 
 export default function ISSTracker() {
-  const { data, error, isLoading } = useSWR(URL, fetcher, {
+  const { data, error, isLoading, mutate } = useSWR(URL, fetcher, {
     refreshInterval: 5000,
   });
 
