@@ -9,17 +9,11 @@ export default function Product() {
 
   const { data, error, isLoading } = useSWR(`/api/products/${id}`, fetcher);
 
-  if (isLoading) {
-    return <h1>Loading...</h1>;
-  }
+  if (isLoading) return <h1>Loading...</h1>;
 
-  if (error) {
-    return <h1>Failed to load</h1>;
-  }
+  if (error) return <h1>Failed to load</h1>;
 
-  if (!data) {
-    return <h1>No products found</h1>;
-  }
+  if (!data) return <h1>No products found</h1>;
 
   return (
     <>
