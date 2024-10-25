@@ -15,9 +15,8 @@ export default async function handler(request, response) {
     try {
       // Product-Daten aus request.body speichern
       const productData = request.body;
-
       // Neues Produkt in der Datenbank erstellen
-      const newProduct = await Product.create(productData);
+      await Product.create(productData);
 
       // Erfolgreiche Antwort
       response.status(201).json({ status: "Product created." });
