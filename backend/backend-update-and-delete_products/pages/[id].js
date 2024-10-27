@@ -1,20 +1,21 @@
-import useSWR from "swr";
-import styled from "styled-components";
-import { useRouter } from "next/router";
-import StyledLink from "@/components/Link";
-import ProductForm from "@/components/ProductForm";
 import { useState } from "react";
-import Button from "@/components/Button";
+import useSWR from "swr";
+import { useRouter } from "next/router";
+import styled from "styled-components";
+import StyledLink from "@/components/Link/";
+import Comments from "@/components/Comments";
+import ProductForm from "@/components/ProductForm";
+import StyledButton from "@/components/Button";
 
 export default function Product() {
-  const [isEditMode, setIsEditMode] = useState(false);
+  const [showEditForm, setShowEditForm] = useState(false);
   const router = useRouter();
   const { id } = router.query;
 
   const { data, isLoading, mutate } = useSWR(`/api/products/${id}`);
 
   async function handleEditProduct(productData) {
-    const response = await fetch(`/api/products/${id}`, {
+    const response = await fetch(`api/products/${id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -22,23 +23,26 @@ export default function Product() {
       body: JSON.stringify(productData),
     });
 
-    if (response.ok) {
-      mutate(); // Aktualisiert die Daten
-      setIsEditMode(false); // Wechselt zurück in den Anzeigemodus
-    } else {
+    if (!response.ok) {
       console.error(response.status);
+      return;
     }
+
+    mutate();
+    setShowEditForm(false);
   }
 
   async function handleDeleteProduct() {
-    const response = await fetch(`/api/products/${id}`, {
+    const response = await fetch(`api/products/${id}`, {
       method: "DELETE",
     });
 
-    if (response.ok) {
-      mutate();
-      router.push("/");
+    if (!response.ok) {
+      console.error(response.status);
+      return;
     }
+
+    router.push("/");
   }
 
   if (isLoading) {
@@ -46,50 +50,30 @@ export default function Product() {
   }
 
   if (!data) {
-    return <h1>Produkt nicht gefunden</h1>;
+    return;
   }
 
   return (
-    <>
-      {isEditMode && (
+    <ProductCard>
+      <h2>{data.name}</h2>
+      <p>Description: {data.description}</p>
+      <p>
+        Price: {data.price} {data.currency}
+      </p>
+      {data.reviews.length > 0 && <Comments reviews={data.reviews} />}
+      <StyledButton onClick={() => setShowEditForm(!showEditForm)}>
+        edit
+      </StyledButton>
+      <StyledButton onClick={handleDeleteProduct}>Delete</StyledButton>
+      {showEditForm && (
         <ProductForm
           onSubmit={handleEditProduct}
-          data={data} // Übergeben der aktuellen Produktdaten zum Bearbeiten
-          heading="Edit Product" // Setzt die Überschrift dynamisch
+          values={data}
+          isEditMode={true}
         />
       )}
-      <br />
-      <ProductCard>
-        <h2>{data.name}</h2>
-        <p>Description: {data.description}</p>
-        <p>
-          Price: {data.price} {data.currency}
-        </p>
-        <p>Reviews:</p>
-        <div>
-          {data.reviews.map((review, index) => (
-            <div key={index}>
-              {review.title}
-              <br />
-              {review.text}
-              <br />
-              {review.rating}⭐
-              <hr />
-            </div>
-          ))}
-        </div>
-        <Button
-          type="button"
-          onClick={() => setIsEditMode(!isEditMode)} // Umschalten zwischen Editier- und Anzeigemodus
-        >
-          Edit
-        </Button>
-        <Button type="button" onClick={handleDeleteProduct}>
-          Delete
-        </Button>
-        <StyledLink href="/">Back to all</StyledLink>
-      </ProductCard>
-    </>
+      <StyledLink href="/">Back to all</StyledLink>
+    </ProductCard>
   );
 }
 

@@ -1,26 +1,37 @@
 import styled from "styled-components";
 import StyledButton from "@/components/Button";
 
-export default function ProductForm({ onSubmit, data, heading }) {
-  const handleSubmit = (event) => {
-    event.preventDefault(); // Verhindert die Standardaktion
-    const formData = new FormData(event.target); // Holt die Formulardaten
-    const productData = Object.fromEntries(formData); // Wandelt die Formulardaten in ein Objekt um
-    onSubmit(productData); // Ruft die übergebene onSubmit-Funktion mit den neuen Daten auf
-  };
+const DEFAULT_VALUES = {
+  name: "",
+  description: "",
+  price: 0,
+  currency: "USD",
+};
+
+export default function ProductForm({
+  onSubmit,
+  values = DEFAULT_VALUES,
+  isEditMode = false,
+}) {
+  async function handleSubmit(event) {
+    event.preventDefault();
+
+    const formData = new FormData(event.target);
+    const productData = Object.fromEntries(formData);
+
+    await onSubmit(productData);
+
+    event.target.reset();
+  }
 
   return (
     <StyledForm onSubmit={handleSubmit}>
-      <StyledHeading>{heading}</StyledHeading>
+      <StyledHeading>
+        {isEditMode ? "Edit a Fish" : "Add a new Fish"}
+      </StyledHeading>
       <StyledLabel htmlFor="name">
         Name:
-        <input
-          type="text"
-          id="name"
-          name="name"
-          defaultValue={data?.name || ""} // Setzt den Default-Wert für Bearbeitung
-          required // Füge required hinzu, um die Eingabe zu validieren
-        />
+        <input type="text" id="name" name="name" defaultValue={values.name} />
       </StyledLabel>
       <StyledLabel htmlFor="description">
         Description:
@@ -28,8 +39,7 @@ export default function ProductForm({ onSubmit, data, heading }) {
           type="text"
           id="description"
           name="description"
-          defaultValue={data?.description || ""} // Setzt den Default-Wert für Bearbeitung
-          required
+          defaultValue={values.description}
         />
       </StyledLabel>
       <StyledLabel htmlFor="price">
@@ -39,17 +49,12 @@ export default function ProductForm({ onSubmit, data, heading }) {
           id="price"
           name="price"
           min="0"
-          defaultValue={data?.price || 0} // Setzt den Default-Wert für Bearbeitung
-          required
+          defaultValue={values.price}
         />
       </StyledLabel>
       <StyledLabel htmlFor="currency">
         Currency:
-        <select
-          id="currency"
-          name="currency"
-          defaultValue={data?.currency || "EUR"} // Setzt den Default-Wert für Bearbeitung
-        >
+        <select id="currency" name="currency" defaultValue={values.currency}>
           <option value="EUR">EUR</option>
           <option value="USD">USD</option>
           <option value="GBP">GBP</option>

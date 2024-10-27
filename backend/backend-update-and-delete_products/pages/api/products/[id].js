@@ -9,8 +9,7 @@ export default async function handler(request, response) {
     const product = await Product.findById(id).populate("reviews");
 
     if (!product) {
-      response.status(404).json({ status: "Not Found" });
-      return;
+      return response.status(404).json({ status: "Not Found" });
     }
 
     response.status(200).json(product);
@@ -18,17 +17,16 @@ export default async function handler(request, response) {
   }
 
   if (request.method === "PUT") {
-    const updatedProduct = request.body;
-    await Product.findByIdAndUpdate(id, updatedProduct);
-    response.status(200).json({ status: "Product successfully updated." });
+    const data = request.body;
+    await Product.findByIdAndUpdate(id, data);
+
+    response.status(200).json({ status: "Product updated." });
     return;
   }
 
   if (request.method === "DELETE") {
     await Product.findByIdAndDelete(id);
-    response.status(200).json({ status: "Product successfully deleted!" });
-    return;
-  }
 
-  response.status(405).json({ status: "Method not allowed." });
+    response.status(200).json({ status: "Product deleted." });
+  }
 }
